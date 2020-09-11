@@ -8,7 +8,7 @@ const fetch = require("node-fetch");
 const fs = require('fs')
 
 setInterval(() => {
-  var links = db.get("linkler");
+  var links = db.get("https://handy-lucky-hygienic.glitch.me/");
   if(!links) return;
   var linkA = links.map(c => c.url)
   linkA.forEach(link => {
@@ -31,7 +31,7 @@ client.on("message", message => {
   if(spl[0] == "p!ekle") {
   var link = spl[1]
   fetch(link).then(() => {
-    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("zaten vad")
+    if(db.get("https://handy-lucky-hygienic.glitch.me/").map(z => z.url).includes(link)) return message.channel.send("zaten vad")
     message.channel.send("eklend");
     db.push("linkler", { url: link, owner: message.author.id})
   }).catch(e => {
